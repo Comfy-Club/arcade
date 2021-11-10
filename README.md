@@ -4,9 +4,8 @@ Currently only focusing on a minesweeper game with multiplayer capabilities and 
 
 ## Todo
 
-User Interface and frontend
-Backend
-
+-   User Interface and frontend
+-   Backend
 -   Sessions
 -   Handling player data
 -   UUID's
@@ -14,6 +13,5 @@ Backend
 -   Linking lobbies and games with the actual games
 -   Express routing
 -   404
-
-Refactor and clean up code to a presentable and collaboration enabling standard
-Make infrastructure easy for others to develop for
+-   Refactor and clean up code to a presentable and collaboration enabling standard
+-   Make infrastructure easy for others to develop for
