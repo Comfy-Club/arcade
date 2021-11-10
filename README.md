@@ -16,3 +16,4 @@ Currently only focusing on a minesweeper game with multiplayer capabilities and 
 -   404
 -   Refactor and clean up code to a presentable and collaboration enabling standard
 -   Make infrastructure easy for others to develop for
+-   Ensure clean and working deployment/building
