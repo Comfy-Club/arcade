@@ -4,6 +4,7 @@ Currently only focusing on a minesweeper game with multiplayer capabilities and 
 
 ## Todo
 
+-   Replace board calculation double for loops in minesweeper with same pattern as in Games.ts/directionsToCoordinates
 -   User Interface and frontend
 -   Backend
 -   Sessions
