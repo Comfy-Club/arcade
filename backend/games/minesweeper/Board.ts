@@ -1,4 +1,5 @@
 import Tile from './Tile';
+import { nearbyTileHelper } from './nearbyTileHelper';
 
 export default class Board {
 	public boardTiles: Tile[][];
@@ -37,6 +38,15 @@ export default class Board {
 			this._incrementNearbyTilesBombCounters(coordinates);
 		}
 		selectedTile.isBomb = true;
+	}
+
+	public isWithinBoard(coordinateX: number, coordinateY: number) {
+		return (
+			coordinateX < 0 ||
+			coordinateX >= this.boardWidth ||
+			coordinateY < 0 ||
+			coordinateY >= this.boardHeight
+		);
 	}
 
 	public logBombs() {
@@ -134,23 +144,16 @@ export default class Board {
 	}
 
 	private _incrementNearbyTilesBombCounters(coordinates: [number, number]) {
-		for (let offsetX = -1; offsetX <= 1; offsetX++) {
-			for (let offsetY = -1; offsetY <= 1; offsetY++) {
-				// Don't check self
-				if (offsetX === 0 && offsetY === 0) continue;
-				// Don't check out of bounds tiles
-				if (coordinates[0] + offsetX < 0) continue;
-				if (coordinates[1] + offsetY < 0) continue;
-				if (this.boardTiles[coordinates[0] + offsetX] === undefined)
-					continue;
-				if (this.boardTiles[coordinates[1] + offsetY] === undefined)
-					continue;
+		for (let direction in nearbyTileHelper) {
+			// Combine coordinates with offset directional coordinates resulting in a "nearby" tile
+			let coordinateX = coordinates[0] + nearbyTileHelper[direction][0];
+			let coordinateY = coordinates[1] + nearbyTileHelper[direction][1];
 
-				// Increment tiles around this bomb
-				this.boardTiles[coordinates[0] + offsetX][
-					coordinates[1] + offsetY
-				].nearbyBombs += 1;
-			}
+			// Check if coordinates are within board
+			if (!this.isWithinBoard(coordinateX, coordinateY)) continue;
+
+			// Increment nearby bomb counter
+			this.boardTiles[coordinateX][coordinateY].nearbyBombs++;
 		}
 	}
 

@@ -1,5 +1,6 @@
 import Board from './Board';
 import Tile from './Tile';
+import { nearbyTileHelper } from './nearbyTileHelper';
 
 enum GameState {
 	PLAYING,
@@ -73,33 +74,13 @@ export class Game {
 		if (targetedTile.isBomb) return this._lose();
 		targetedTile.tileState = targetedTile.tileState = 1; // 1 = CHECKED
 
-		let directionsToCoordinates = [
-			[-1, 1], // UP Left
-			[0, 1], // UP
-			[1, 1], // UP Right
-			[-1, 0], // LEFT
-			[1, 0], // RIGHT
-			[-1, -1], // DOWN Left
-			[0, -1], // DOWN
-			[1, -1], // DOWN Right
-		];
-
 		if (targetedTile.nearbyBombs !== 0) return;
-		for (let direction in directionsToCoordinates) {
-			let coordinateX =
-				coordinates[0] + directionsToCoordinates[direction][0];
-			let coordinateY =
-				coordinates[1] + directionsToCoordinates[direction][1];
+		for (let direction in nearbyTileHelper) {
+			let coordinateX = coordinates[0] + nearbyTileHelper[direction][0];
+			let coordinateY = coordinates[1] + nearbyTileHelper[direction][1];
 
 			// Check if coordinates are within board
-			if (
-				coordinateX < 0 ||
-				coordinateX >= this._Board.boardWidth ||
-				coordinateY < 0 ||
-				coordinateY >= this._Board.boardHeight
-			) {
-				continue;
-			}
+			if (this._Board.isWithinBoard(coordinateX, coordinateY)) continue;
 
 			let newTargetedTile =
 				this._Board.boardTiles[coordinateX][coordinateY];
