@@ -20,7 +20,6 @@ npm run dev
 
 ## Todo
 
--   Replace board calculation double for loops in minesweeper with same pattern as in Games.ts/directionsToCoordinates
 -   User Interface
 -   Sessions
 -   Handling player data
