@@ -1,8 +1,8 @@
 <script lang="ts">
 	import {onMount} from 'svelte';
-	import TestComponent from './testcomponent.svelte';
+	import Games from './Games/Games.svelte';
 </script>
 
 <main>
-	<TestComponent />
+	<Games/>
 </main>

@@ -3,10 +3,7 @@ let router = express.Router();
 
 /* GET home page. */
 router.get('/', (req, res) => {
-	res.json({ title: 'Frontpage' });
-	// let meme = setInterval(function () {
-	// 	// res.json('Hello');
-	// }, 1000);
+	res.json({ message: 'Not a valid path' });
 });
 
 export default router;
