@@ -2,6 +2,22 @@
 
 Currently only focusing on a minesweeper game with multiplayer capabilities and infrastructure to (feature creep out of existance) expand.
 
+## Start
+
+Backend:
+
+```bash
+cd backend
+npm start
+```
+
+Frontend:
+
+```bash
+cd frontend
+npm run dev
+```
+
 ## Todo
 
 -   Replace board calculation double for loops in minesweeper with same pattern as in Games.ts/directionsToCoordinates
