@@ -21,15 +21,11 @@ npm run dev
 ## Todo
 
 -   Replace board calculation double for loops in minesweeper with same pattern as in Games.ts/directionsToCoordinates
--   User Interface and frontend
--   Backend
+-   User Interface
 -   Sessions
 -   Handling player data
--   UUID's
 -   Lobbies and games
 -   Linking lobbies and games with the actual games
--   Express routing
--   404
 -   Refactor and clean up code to a presentable and collaboration enabling standard
 -   Make infrastructure easy for others to develop for
 -   Ensure clean and working deployment/building
