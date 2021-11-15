@@ -5,7 +5,7 @@
 	let gameList: any;
 
 	onMount(async () => {
-    await fetch(`http://localhost/api/v1/games`)
+    await fetch(`http://localhost:3000/api/v1/games`)
     .then(res => res.json())
       // TODO: Format this data in to a hashtable
       /*
