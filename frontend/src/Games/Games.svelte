@@ -2,7 +2,13 @@
 	import { onMount } from 'svelte';
 	import Game from './Game.svelte';
 
-	let gameList: any;
+  interface Game {
+    name: String,
+    id: String,
+    type: String
+  }
+
+	let gameList: Game[];
 
 	onMount(async () => {
     await fetch(`http://localhost:3000/api/v1/games`)
@@ -19,7 +25,10 @@
         ...
       ]
       */
-      .then(data => { gameList = Object.entries(data) })
+      .then(data => { 
+        let a = Object.entries(data)
+        gameList = a.map(value => { return value[1] }) as Game[]
+      })
       .catch(err => console.error(err));
   });
 
@@ -27,6 +36,6 @@
 
 {#if gameList}
   {#each gameList as gameObject}    
-    <Game game={gameObject[1]} />
+    <Game game={gameObject} />
   {/each}
 {/if}
