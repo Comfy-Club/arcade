@@ -3,8 +3,8 @@ export class Player {
 	name: string;
 	color: string;
 
-	constructor() {
-		this.id = '';
+	constructor(id: string) {
+		this.id = id;
 		this.name = '';
 		this.color = '';
 	}

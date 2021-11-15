@@ -1,11 +1,12 @@
 import { Player } from './Player';
 
-interface IPlayerList {
-	[key: string]: Player;
+export interface IPlayerList {
+	// index: uuid
+	[index: string]: Player;
 }
 
-export class PlayerList {
-	playerList: IPlayerList;
+export default class PlayerList {
+	public playerList: IPlayerList;
 
 	constructor() {
 		this.playerList = {};
