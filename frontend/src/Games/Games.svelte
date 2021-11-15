@@ -12,19 +12,6 @@
 
 	onMount(async () => {
     await fetch(`http://localhost:3000/api/v1/games`)
-    .then(res => res.json())
-      // TODO: Format this data in to a hashtable
-      /*
-      Ideal format:
-      [
-        {
-          name: "",
-          id: "",
-          type: ""
-        },
-        ...
-      ]
-      */
       .then(data => { 
         let a = Object.entries(data)
         gameList = a.map(value => { return value[1] }) as Game[]
