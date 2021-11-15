@@ -1,23 +1,15 @@
 <script lang=ts>
 	import { onMount } from 'svelte';
 	import Game from './Game.svelte';
+  import getGames from '../ts/requests';
 
-  interface Game {
-    name: String,
-    id: String,
-    type: String
-  }
+  import type IGame from '../ts/interfaces';
 
-	let gameList: Game[];
+	let gameList: IGame[];
 
 	onMount(async () => {
-    await fetch(`http://localhost:3000/api/v1/games`)
-      .then(response => response.json())
-      .then(data => { 
-        let a = Object.entries(data)
-        gameList = a.map(value => { return value[1] }) as Game[]
-      })
-      .catch(err => console.error(err));
+    gameList = await getGames();
+    console.log(`Games.svelte: ${gameList}`)
   });
 
 </script>
