@@ -1,18 +1,11 @@
 <script lang=ts>
 
-	interface IGame {
-		name: string;
-		id: string;
-		type: string;
-	}
-
-	export let Game: IGame;
-
+	export let game: any;
 
 </script>
 
 <div>
-	<h1>{Game.name}</h1>
-	<small>{Game.id}</small>
-	<small>{Game.type}</small>
+	<h1>{game.name}</h1>
+	<small>{game.id}</small>
+	<small>{game.type}</small>
 </div>

@@ -2,29 +2,31 @@
 	import { onMount } from 'svelte';
 	import Game from './Game.svelte';
 
-	let Games: object[];
-	let Game: object;
+	let gameList: any;
 
 	onMount(async () => {
     await fetch(`http://localhost/api/v1/games`)
-      .then(r => r.json())
-      .then(data => {
-		for (let index in data) {
-			Games.push(data[index])
-			console.log(data[index]);
-		}
-      });
-  })
+    .then(res => res.json())
+      // TODO: Format this data in to a hashtable
+      /*
+      Ideal format:
+      [
+        {
+          name: "",
+          id: "",
+          type: ""
+        },
+        ...
+      ]
+      */
+      .then(data => { gameList = Object.entries(data) })
+      .catch(err => console.error(err));
+  });
+
 </script>
 
-{#if Games}
-  {#each Games as Game}
-    <ul>
-      <li>    
-        <Game {Game} />
-      </li>
-    </ul>
+{#if gameList}
+  {#each gameList as gameObject}    
+    <Game game={gameObject[1]} />
   {/each}
-{:else}
-  <p class="loading">loading...</p>
 {/if}
