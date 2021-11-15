@@ -12,6 +12,7 @@
 
 	onMount(async () => {
     await fetch(`http://localhost:3000/api/v1/games`)
+      .then(response => response.json())
       .then(data => { 
         let a = Object.entries(data)
         gameList = a.map(value => { return value[1] }) as Game[]
