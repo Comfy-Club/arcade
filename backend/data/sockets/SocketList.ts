@@ -1,4 +1,5 @@
 import WebSocket from 'ws';
+import { v4 as uuid } from 'uuid';
 
 export interface ISocketList {
 	// index: uuid
@@ -10,5 +11,9 @@ export default class SocketList {
 
 	constructor() {
 		this.socketList = {};
+	}
+
+	public removeWithPlayerId(id: string) {
+		delete this.socketList[id];
 	}
 }

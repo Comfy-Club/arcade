@@ -2,6 +2,7 @@ import express from 'express';
 import { v4 as uuid } from 'uuid';
 let router = express.Router();
 
+// Test games
 let Games = [
 	{
 		name: 'test',

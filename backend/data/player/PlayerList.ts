@@ -11,4 +11,8 @@ export default class PlayerList {
 	constructor() {
 		this.playerList = {};
 	}
+
+	public removeWithPlayerId(id: string) {
+		delete this.playerList[id];
+	}
 }
