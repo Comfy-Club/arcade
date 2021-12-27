@@ -4,16 +4,25 @@ Currently only focusing on a minesweeper game with multiplayer capabilities and 
 
 ## Start
 
-Backend:
+### Backend:
 
+- TypeScript
+- Express
+- WebSockets (ws)
+
+#### Start:
 ```bash
 cd backend
 npm install
 npm start
 ```
 
-Frontend:
+### Frontend:
 
+- TypeScript
+- Svelte
+
+#### Start:
 ```bash
 cd frontend
 npm install
