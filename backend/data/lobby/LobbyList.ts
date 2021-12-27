@@ -4,7 +4,7 @@ interface ILobbyList {
 	[key: string]: Lobby;
 }
 
-export class LobbyList {
+export default class LobbyList {
 	lobbyList: ILobbyList;
 
 	constructor() {

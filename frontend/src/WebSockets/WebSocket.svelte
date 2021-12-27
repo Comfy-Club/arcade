@@ -19,9 +19,14 @@
 	}
 </script>
 
-{#each messages as message, i}
-	<div>
+<section>
+	<h3>Messages</h3>
+	<input type="text" bind:value={message}>
+	<button on:click={onSendMessage}>
+		Send Message
+	</button>
+	{#each messages as message, i}
 		<p>{message}</p>
-	</div>
-{/each}
+	{/each}
+</section>
 
