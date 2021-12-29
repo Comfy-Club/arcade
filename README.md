@@ -18,6 +18,11 @@ npm install
 npm start
 ```
 
+Or if you want to run on a docker enviroment:
+```bash
+cd backend && docker-compose up --build
+```
+
 ### Frontend:
 
 -   TypeScript
