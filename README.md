@@ -13,14 +13,12 @@ Currently only focusing on a minesweeper game with multiplayer capabilities and 
 #### Start:
 
 ```bash
-cd backend
-npm install
-npm start
+cd backend && docker-compose up
 ```
 
-Or if you want to run on a docker enviroment:
+If you don't have docker, setup a postgres database on port 5432 and database named comfy-backend. After that, run:
 ```bash
-cd backend && docker-compose up --build
+cd backend && npm start
 ```
 
 ### Frontend:
